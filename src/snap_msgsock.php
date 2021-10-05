@@ -373,10 +373,11 @@ class TPinger {
     else
       $ip_addr = $Host_or_IP;
 
-    if ($PingKind==pkRawSocket)
+    if ($PingKind==pkRawSocket) {
       return $this->RawPing($ip_addr, $Timeout);
-    else
-      return true; // we still need to continue
+    } else {
+        return true; // we still need to continue
+    }
   }
 }
 class_alias("TPinger", "PPinger");
@@ -744,7 +745,7 @@ class TMsgSocket extends TSnapBase {
           if (! socket_connect($this->FSocket, $this->RemoteAddress, $this->RemotePort)) {
             $errno = socket_last_error($this->FSocket);
             if ((PLATFORM_WINDOWS and ($errno != WSAEWOULDBLOCK)) or ((! PLATFORM_WINDOWS) and ($errno != EINPROGRESS))) {
-              $this->LastTcpError = GetLastSocketError();
+              $this->LastTcpError = $this->GetLastSocketError();
             }
             else {
               // still connecting ...

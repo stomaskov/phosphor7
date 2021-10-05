@@ -813,7 +813,7 @@ class TSnap7MicroClient extends TSnap7Peer {
 			// S7 instead requires a number != 0
 			// Libnodave uses 0x0100
 			// S7Manager uses 0x0D00
-      // TIA Portal V12 uses 0x1D00
+            // TIA Portal V12 uses 0x1D00
 			// WinCC     uses 0x0300
 			// Seems that every non zero value is good enough...
     $this->DstRef  =0x0000;
@@ -960,7 +960,7 @@ class TSnap7MicroClient extends TSnap7Peer {
     public function DBWrite($DBNumber, $Start, $Size, &$pUsrData) {
         return $this->WriteArea(S7AreaDB, $DBNumber, $Start, $Size, S7WLByte, $pUsrData);
     }
-	
+
   //TODO: public int MBRead(int Start, int Size, void * pUsrData);
   //TODO: public int MBWrite(int Start, int Size, void * pUsrData);
   //TODO: public int EBRead(int Start, int Size, void * pUsrData);
