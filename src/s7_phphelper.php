@@ -102,4 +102,15 @@ class s7_phphelper
         $data .= str_pad(dechex($number2add), 8, '0', STR_PAD_LEFT);
         $lenght += 4;
     }
+
+    /**
+     * @param $data string Prepared data string
+     * @param $lenght int lenght for the send function
+     * @param $number2add int
+     */
+    public static function sendDataAdd_S7_TInt(&$data, &$lenght, $number2add)
+    {
+        $data .= dechex($number2add);
+        $lenght += 1;
+    }
 }
